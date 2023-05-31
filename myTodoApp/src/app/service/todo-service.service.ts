@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TodoServiceService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/users/1/todos'; //URL for the API endpoint that returns todo items
+  private apiUrl = 'https://jsonplaceholder.typicode.com/todos'; //URL for the API endpoint that returns todo items
 
   constructor(private http: HttpClient) { } /*inject an instance of the HttpClient module as a 
                                               dependency into the TodoService, to allow communication with the 
