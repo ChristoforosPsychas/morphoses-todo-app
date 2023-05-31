@@ -8,6 +8,8 @@ import { TodoServiceService } from 'src/app/service/todo-service.service';
 })
 export class TodosComponent {
   todoItems: any[] = [];
+  filteredTodoItems: any[] = []
+  filterText: string = '';
 
   constructor(private todoService: TodoServiceService) {
     this.fetchTodoItems();
@@ -18,7 +20,29 @@ export class TodosComponent {
     this.todoService.getTodoItems().subscribe(items => {
       console.log('Received todo items:', items);
       this.todoItems = items;
+      this.applyFilter();
     });
   }
 
+  applyFilter() {
+    if (this.filterText.trim() === '') {
+      this.filteredTodoItems = [];
+    } else {
+    this.filteredTodoItems = this.todoItems.filter(todoItem => {
+      return todoItem.title.toLowerCase().includes(this.filterText.toLowerCase());
+    });
+  }
+}
+
+ /* addTodoItem() {
+    const newTodo = {
+      title: this.filterText,
+      completed: false
+    };
+
+    this.todoService.addTodoItem(newTodo).subscribe(todoItem => {
+      this.todoItems.push(todoItem);
+      this.filterText = '';
+    });
+  }*/
 }
