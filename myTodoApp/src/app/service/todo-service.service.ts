@@ -17,4 +17,8 @@ export class TodoServiceService {
                                                , and return it as an Observable object    */ 
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  addTodoItem(newTodo: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, newTodo);
+  }
 }
