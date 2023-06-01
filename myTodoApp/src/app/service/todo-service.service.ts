@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TodoServiceService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/todos'; //URL for the API endpoint that returns todo items
+  private apiUrl = 'https://instinctive-fork-snarl.glitch.me/todos'; //URL for the API endpoint that returns todo items
 
   constructor(private http: HttpClient) { } /*inject an instance of the HttpClient module as a 
                                               dependency into the TodoService, to allow communication with the 
@@ -21,4 +21,6 @@ export class TodoServiceService {
   addTodoItem(newTodo: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, newTodo);
   }
+
+
 }
