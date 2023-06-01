@@ -48,4 +48,9 @@ export class TodosComponent {
     });
   }
 
+  deleteTodoItem(id: number) {
+    this.todoService.deleteTodoItem(id).subscribe(() => {
+      this.fetchTodoItems();
+    });
+  }
 }
