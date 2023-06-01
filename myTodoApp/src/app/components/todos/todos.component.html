@@ -1,8 +1,9 @@
 <h2>Todo List</h2>
-<input type="text" name="inputTodo" [(ngModel)]="filterText" placeholder="Enter todo..." (input)="applyFilter()"/>
-<button>Add Todo</button>
+<input type="text" name="inputTodo" [(ngModel)]="text" placeholder="Enter todo..."/>
+<button type="submit" (click)="addTodoItem()">Add Todo</button>
 <ul>
-  <li *ngFor="let todoItem of filteredTodoItems">
+  <li *ngFor="let todoItem of todoItems">
     {{ todoItem.title }}
+    {{ todoItem.completed }}
   </li>
 </ul>
