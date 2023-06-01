@@ -6,5 +6,7 @@
     {{ todoItem.title }}
     {{ todoItem.completed }}
     <button (click)="deleteTodoItem(todoItem.id)">Delete</button>
+    <button (click)="markTodoItemComplete(todoItem)">Toggle Complete</button>
   </li>
 </ul>
+

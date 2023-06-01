@@ -53,4 +53,11 @@ export class TodosComponent {
       this.fetchTodoItems();
     });
   }
+
+  markTodoItemComplete(todoItem: any) {
+    const updatedCompleted = !todoItem.completed;
+    this.todoService.markTodoItemComplete(todoItem.id, updatedCompleted).subscribe(() => {
+      this.fetchTodoItems();
+    });
+  }
 }

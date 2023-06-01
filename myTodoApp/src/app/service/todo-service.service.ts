@@ -26,4 +26,14 @@ export class TodoServiceService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<any>(url);
   }
-}
+
+  markTodoItemComplete(id: number, completed: boolean): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    const updatedTodo = {completed: completed};
+    return this.http.patch<any>(url, updatedTodo);
+  }
+
+
+
+
+ }
