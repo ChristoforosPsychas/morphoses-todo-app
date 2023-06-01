@@ -8,7 +8,6 @@ import { TodoServiceService } from 'src/app/service/todo-service.service';
 })
 export class TodosComponent {
   todoItems: any[] = [];
-  //filteredTodoItems: any[] = [];
   text: string = '';
 
   constructor(private todoService: TodoServiceService) {
@@ -20,19 +19,8 @@ export class TodosComponent {
     this.todoService.getTodoItems().subscribe(items => {
       console.log('Received todo items:', items);
       this.todoItems = items;
-      /*this.applyFilter();*/
     });
   }
-
-  /*applyFilter() {
-    if (this.filterText.trim() === '') {
-      this.filteredTodoItems = [];
-    } else {
-    this.filteredTodoItems = this.todoItems.filter(todoItem => {
-      return todoItem.title.toLowerCase().includes(this.filterText.toLowerCase());
-    });
-  }
-}*/
 
   addTodoItem() {
     const newTodo = {
@@ -59,5 +47,15 @@ export class TodosComponent {
     this.todoService.markTodoItemComplete(todoItem.id, updatedCompleted).subscribe(() => {
       this.fetchTodoItems();
     });
+  }
+
+  countIncompleteItems(todoItems: any[]) {
+    let counter: number = 0;
+    for (const todoItem of todoItems) {
+      if (todoItem.completed == false) {
+        counter++;
+      }
+    }
+    return counter;
   }
 }
