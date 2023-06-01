@@ -28,9 +28,8 @@ export class TodosComponent {
       completed: false
     };
 
-    this.todoService.addTodoItem(newTodo).subscribe(todoItem => {
-      this.todoItems.push(todoItem);
-      //this.fetchTodoItems();
+    this.todoService.addTodoItem(newTodo).subscribe(() => {
+      this.fetchTodoItems();
       console.log(this.todoItems);
       this.text = '';
     });

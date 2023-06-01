@@ -1,14 +1,17 @@
-<h2>Todo List</h2>
-<input type="text" name="inputTodo" [(ngModel)]="text" placeholder="Enter todo..."/>
-<button type="submit" (click)="addTodoItem()">Add Todo</button>
-<ul>
-  <li *ngFor="let todoItem of todoItems">
-    {{ todoItem.title }}
-    {{ todoItem.completed }}
-    <button (click)="deleteTodoItem(todoItem.id)">Delete</button>
-    <button (click)="markTodoItemComplete(todoItem)">Toggle Complete</button>
-  </li>
-  
-</ul>
-<p>Count of incomplete items: {{ countIncompleteItems(todoItems) }}</p>
+<div class="todos">
+  <form>
+    <input type="text" name="inputTodo" class="todo-input" [(ngModel)]="text" placeholder="Enter todo..."/>
+  </form>
+    <button type="submit" (click)="addTodoItem()">Add Todo</button>
+    <ul>
+      <li *ngFor="let todoItem of todoItems">
+        {{ todoItem.title }}
+        {{ todoItem.completed }}
+        <button (click)="deleteTodoItem(todoItem.id)">Delete</button>
+        <button (click)="markTodoItemComplete(todoItem)">Toggle Complete</button>
+      </li>
+      
+    </ul>
+    <p>Count of incomplete items: {{ countIncompleteItems(todoItems) }}</p>
+</div>
 
