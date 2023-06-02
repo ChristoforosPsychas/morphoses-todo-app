@@ -53,6 +53,21 @@
    gap: 166px;
 }
 
+.search-results {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-top: 5px;
+  background-color: #629cdf;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.search-item {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
 .todo-item .todo-title {
     flex-grow: 1;
   }
@@ -110,27 +125,31 @@
     background-color: ForestGreen;
 }
 
+.centered-p-incomplete, .centered-p-search {
+    text-align: center;
+}
 .count-incomplete-items {
   display: inline-block;
   padding: 4px 8px;
   background-color: #df6a62;
   color: #ffffff;
   border-radius: 4px;
-  }
+}
 
 
 
  /***********************Media Queries********************************/ 
 
- /*For small screens & laptops*/
+
 @media screen and (max-width: 420px) {
     .todo-item {
         gap: 0px;
     }
 }
 
+ /*For small screens & laptops*/
 @media screen and (min-width: 769px) {
-    .todo-title, .add-button, .todo-input, .count-incomplete-items {
+    .todo-title, .add-button, .todo-input, .count-incomplete-items, .search-results {
         font-size: 22px;
     }
 
@@ -141,7 +160,7 @@
 
  /*For desktops*/
 @media screen and (min-width: 1200px) {
-    .todo-title, .add-button, .todo-input, .count-incomplete-items {
+    .todo-title, .add-button, .todo-input, .count-incomplete-items, .search-results {
         font-size: 28px;
     }
 
