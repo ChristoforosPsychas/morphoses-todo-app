@@ -3,3 +3,16 @@ h1 {
     text-align: center;
     margin-top: 10px;
 }
+
+
+@media screen and (min-width: 769px) {
+    h1 {
+        font-size: 38px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: 45px;
+    }
+}

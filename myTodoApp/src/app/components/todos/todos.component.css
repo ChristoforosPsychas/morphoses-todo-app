@@ -2,37 +2,43 @@
     display: block;
     width: 100%;
     padding: 10px 15px;
-    appearance: none;
     border: none;
     background-color: #F3F3F3;
     margin-top: 15px;
     font-size: 20px;
-    outline: none;
+    /*
+    appearance: none;
+    outline: none;*/
 }
 
 .add-button {
     display: block;
 	width: 100%;
 	max-width: 200px;
-	appearance: none;
 	border: none;
+    border-radius: 4px;
+    /*
 	outline: none;
+    appearance: none;
+    */
 	background: none;
     cursor: pointer; 
-
-	background-color: #3520f3;
+	background-color:#2d19e9;
 	color: #FFF;
 	margin: 15px auto;
-
 	padding: 10px 15px;
 	font-size: 18px;
 	font-weight: 700;
 }
 
+.add-button:hover {
+    background-color: #5949eb;
+}
+
 .todo-items {
     display: flex;
-	padding: 10px 8px;
-
+    /*width: 100%;*/
+	padding: 10px 0px;
 }
 
 .todo-items ul {
@@ -44,6 +50,7 @@
    display: flex;
    align-items: center;
    margin-bottom: 2px;
+   gap: 166px;
 }
 
 .todo-item .todo-title {
@@ -71,7 +78,7 @@
 
 
 .delete-button {
-    background-color: indianred;
+    background-color: firebrick;
     border: none; 
     border-radius: 4px;
     color: white; 
@@ -81,7 +88,7 @@
 }
 
 .delete-button:hover {
-    background-color: firebrick;
+    background-color: indianred;
 }
 
 .fa.fa-trash, .fa-square, .fa-check-square {
@@ -90,7 +97,7 @@
 
 
 .mark-complete-button {
-    background-color: ForestGreen;
+    background-color: DarkGreen;
     border: none; 
     border-radius: 4px;
     color: white; 
@@ -100,5 +107,46 @@
 }
 
 .mark-complete-button:hover {
-    background-color: DarkGreen;
+    background-color: ForestGreen;
+}
+
+.count-incomplete-items {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #df6a62;
+  color: #ffffff;
+  border-radius: 4px;
+  }
+
+
+
+ /***********************Media Queries********************************/ 
+
+ /*For small screens & laptops*/
+@media screen and (max-width: 420px) {
+    .todo-item {
+        gap: 0px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .todo-title, .add-button, .todo-input, .count-incomplete-items {
+        font-size: 22px;
+    }
+
+    .delete-button, .mark-complete-button {
+        padding: 11px 22px;
+    }
+}
+
+ /*For desktops*/
+@media screen and (min-width: 1200px) {
+    .todo-title, .add-button, .todo-input, .count-incomplete-items {
+        font-size: 28px;
+    }
+
+    .delete-button, .mark-complete-button {
+        padding: 14px 28px;
+    }
+
 }
