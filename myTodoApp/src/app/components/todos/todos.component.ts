@@ -14,6 +14,7 @@ export class TodosComponent {
     this.fetchTodoItems();
   }
 
+
   fetchTodoItems() {
     console.log('Fetching todo items...');
     this.todoService.getTodoItems().subscribe(items => {

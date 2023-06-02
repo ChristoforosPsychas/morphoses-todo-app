@@ -1,3 +1,104 @@
 .todo-input {
     display: block;
+    width: 100%;
+    padding: 10px 15px;
+    appearance: none;
+    border: none;
+    background-color: #F3F3F3;
+    margin-top: 15px;
+    font-size: 20px;
+    outline: none;
+}
+
+.add-button {
+    display: block;
+	width: 100%;
+	max-width: 200px;
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+    cursor: pointer; 
+
+	background-color: #3520f3;
+	color: #FFF;
+	margin: 15px auto;
+
+	padding: 10px 15px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.todo-items {
+    display: flex;
+	padding: 10px 8px;
+
+}
+
+.todo-items ul {
+    flex: 1 1 100%;
+    list-style-type: none;
+}
+
+.todo-item {
+   display: flex;
+   align-items: center;
+   margin-bottom: 2px;
+}
+
+.todo-item .todo-title {
+    flex-grow: 1;
+  }
+
+/*.todo-item .button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}*/
+
+.todo-item .delete-button,
+.todo-item .mark-complete-button {
+   margin-left: 10px;
+}
+
+.todo-item .mark-complete-button {
+    margin-right: 2px;
+  }
+
+.todo-item:nth-child(even) {
+	background-color: #EEE;
+}
+
+
+.delete-button {
+    background-color: indianred;
+    border: none; 
+    border-radius: 4px;
+    color: white; 
+    padding: 8px 16px;
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+.delete-button:hover {
+    background-color: firebrick;
+}
+
+.fa.fa-trash, .fa-square, .fa-check-square {
+    align-items: center;
+  }
+
+
+.mark-complete-button {
+    background-color: ForestGreen;
+    border: none; 
+    border-radius: 4px;
+    color: white; 
+    padding: 8px 16px;
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+.mark-complete-button:hover {
+    background-color: DarkGreen;
 }
