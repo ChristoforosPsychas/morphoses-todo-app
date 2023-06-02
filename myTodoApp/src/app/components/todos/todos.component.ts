@@ -8,12 +8,26 @@ import { TodoServiceService } from 'src/app/service/todo-service.service';
 })
 export class TodosComponent {
   todoItems: any[] = [];
+  searchItems: any[] = [];
   text: string = '';
+  searchTerm: string = '';
 
   constructor(private todoService: TodoServiceService) {
     this.fetchTodoItems();
   }
 
+  fetchSearchedItems() {
+    console.log('Fetching search items...');
+    if (this.searchTerm) {
+      this.todoService.getSearchedItems(this.searchTerm).subscribe(items => {
+        console.log('Received search items:', items);
+        this.searchItems = items;
+      });
+    } else {
+      this.searchItems = [];
+    }
+    this.searchTerm = '';
+  }
 
   fetchTodoItems() {
     console.log('Fetching todo items...');

@@ -2,7 +2,11 @@
   <form>
     <input type="text" name="inputTodo" class="todo-input" [(ngModel)]="text" placeholder="Enter todo..."/>
   </form>
+  <form>
+    <input type="text" name="searchInput" class="todo-input" [(ngModel)]="searchTerm" placeholder="Search..."/>
+  </form>
     <button class="add-button" (click)="addTodoItem()">Add Todo</button>
+    <button class="add-button" (click)="fetchSearchedItems()">Search</button>
     <div class="todo-items">
       <ul>
         <li class="todo-item" *ngFor="let todoItem of todoItems">
@@ -14,6 +18,18 @@
         </li>
       </ul>
     </div>
-    <p class="count-incomplete-items">Incomplete Items: {{ countIncompleteItems(todoItems) }}</p>
+    <div class="centered-p-incomplete">
+      <p class="count-incomplete-items">Incomplete Items: {{ countIncompleteItems(todoItems) }}</p>
+    </div>
+    <div class="todo-items">
+      <ul>
+        <div class="centered-p-search">
+          <p class="search-results">Search results:</p>
+        </div>
+        <li class="search-item" *ngFor="let searchItem of searchItems">
+          <span class="todo-title">{{ searchItem.title }}</span>
+        </li>
+      </ul>
+    </div>
 </div>
 

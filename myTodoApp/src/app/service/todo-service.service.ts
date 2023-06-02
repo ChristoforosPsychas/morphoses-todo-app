@@ -12,10 +12,14 @@ export class TodoServiceService {
                                               dependency into the TodoService, to allow communication with the 
                                               HTTP servers and the creation of HTTP requests*/
 
+ getSearchedItems(searchTerm: string): Observable<any[]> {
+  const url = `${this.apiUrl}?q=${searchTerm}`;
+  return this.http.get<any[]>(url);
+ }                        
 
   /* we use http to send a req to the API, get the todo
      ,and return it as an Observable object    */                                             
-  getTodoItems(): Observable<any[]> {      
+  getTodoItems(): Observable<any[]> { 
     return this.http.get<any[]>(this.apiUrl);
   }
 
