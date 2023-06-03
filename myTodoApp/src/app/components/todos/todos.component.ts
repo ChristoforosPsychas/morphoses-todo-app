@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TodoServiceService } from 'src/app/service/todo-service.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todos',
@@ -11,6 +13,13 @@ export class TodosComponent {
   searchItems: any[] = [];
   text: string = '';
   searchTerm: string = '';
+
+  /********************
+   Pagination variables
+   *******************/
+   currentPage: number = 1;
+   totalPages: number = 0;
+   pageSize: number = 10;
 
   constructor(private todoService: TodoServiceService) {
     this.fetchTodoItems();
@@ -33,9 +42,9 @@ export class TodosComponent {
   //method to fetch all todo items from the server
   fetchTodoItems() {
     console.log('Fetching todo items...');
-    this.todoService.getTodoItems().subscribe(items => {
+    this.todoService.getTodoItems(this.currentPage, this.pageSize).subscribe(items => {
       console.log('Received todo items:', items);
-      this.todoItems = items;
+      this.todoItems = items;  
     });
   }
 
@@ -48,7 +57,6 @@ export class TodosComponent {
 
     this.todoService.addTodoItem(newTodo).subscribe(() => {
       this.fetchTodoItems();
-      console.log(this.todoItems);
       this.text = '';
     });
   }
@@ -78,4 +86,20 @@ export class TodosComponent {
     }
     return counter;
   }
-}
+
+  goToPage(currentPage: number) {
+    this.getTotalPages().subscribe((totalPages: number) => {
+      if (currentPage >=1 && currentPage <= totalPages) {
+        this.currentPage = currentPage;
+        this.fetchTodoItems();
+      }
+    });
+  }
+  
+
+  getTotalPages(): Observable<number> {
+    return this.todoService.getAllTodoItems().pipe(
+      map(items => Math.ceil(items.length / this.pageSize))
+    );
+  }
+ }
