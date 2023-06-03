@@ -2,11 +2,11 @@
   <form>
     <input type="text" name="inputTodo" class="todo-input" [(ngModel)]="text" placeholder="Enter todo..."/>
   </form>
+  <button class="add-button" (click)="addTodoItem()">Add Todo</button>
   <form>
     <input type="text" name="searchInput" class="todo-input" [(ngModel)]="searchTerm" placeholder="Search..."/>
   </form>
-    <button class="add-button" (click)="addTodoItem()">Add Todo</button>
-    <button class="add-button" (click)="fetchSearchedItems()">Search</button>
+  <button class="add-button" (click)="fetchSearchedItems()">Search</button>
     <div class="todo-items">
       <ul>
         <li class="todo-item" *ngFor="let todoItem of todoItems">
