@@ -31,7 +31,12 @@ export class TodoServiceService {
   /*method to get all the todo items that takes no parameters and 
     returns an Observable that represents an array of any type to the caller which allows him to subscribe
     to the emitted values and handle them accordingly.*/                                     
-  getTodoItems(): Observable<any[]> { 
+  getTodoItems(currentPage: number, pageSize: number): Observable<any[]> { 
+    const url = `${this.apiUrl}?_page=${currentPage}&_limit=${pageSize}`;
+    return this.http.get<any[]>(url);
+  }
+
+  getAllTodoItems(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
   /*method to add a todo item to the server that takes a parameter for the new todo and returns 
@@ -63,8 +68,4 @@ export class TodoServiceService {
                                                 
     return this.http.patch<any>(url, updatedTodo);
   }
-
-
-
-
  }
