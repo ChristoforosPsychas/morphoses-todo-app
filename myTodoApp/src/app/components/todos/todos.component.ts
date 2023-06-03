@@ -16,6 +16,7 @@ export class TodosComponent {
     this.fetchTodoItems();
   }
 
+  
   fetchSearchedItems() {
     console.log('Fetching search items...');
     if (this.searchTerm) {
@@ -63,6 +64,7 @@ export class TodosComponent {
     });
   }
 
+  //method to count the incomplete items based on the value of the completed property
   countIncompleteItems(todoItems: any[]) {
     let counter: number = 0;
     for (const todoItem of todoItems) {
