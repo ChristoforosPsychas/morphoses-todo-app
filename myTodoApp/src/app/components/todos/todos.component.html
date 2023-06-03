@@ -18,6 +18,10 @@
         </li>
       </ul>
     </div>
+    <div class="pagination">
+     <button class="pagination-button" (click)="goToPage(currentPage - 1)">Prev</button>
+     <button class="pagination-button" (click)="goToPage(currentPage + 1)">Next</button>
+    </div>
     <div class="centered-p-incomplete">
       <p class="count-incomplete-items">Incomplete Items: {{ countIncompleteItems(todoItems) }}</p>
     </div>
